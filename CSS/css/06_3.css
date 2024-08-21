@@ -1,0 +1,32 @@
+/* 전체선택자 : 모든 요소를 선택 */
+* {
+    margin: 0;
+    padding: 0;
+    color: rgb(15, 139, 42);
+}
+
+/* 타입 선택자 : 특정 태그명을 가진 모든 요소를 선택 */
+h1 {
+    color: red;
+}
+p {
+    color: rgb(112, 35, 131);
+}
+
+/* 클래스 선택자 : 주어진 class 명을 가진 모든 요소를 선택 */
+.font-color {
+    color: orange;
+}
+.font-color-red {
+    color: red;
+}
+
+/* ID 선택자 : 요소의 ID로 선택- ID=해당요소의 고유한 값, 절대 중복 불가능 */
+#strong-black, p {
+    color: black;
+}
+
+/* 그룹 선택자 : ','를 구분자로 해서 복수의 요소를 선택 */
+#strong-black, .font-color-red {
+    font-size: 40px;
+}
