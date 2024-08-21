@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    color: rgb(15, 139, 42);
+    color: blue;
 }
 
 /* 타입 선택자 : 특정 태그명을 가진 모든 요소를 선택 */
