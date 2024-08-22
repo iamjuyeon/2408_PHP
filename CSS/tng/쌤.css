@@ -1,0 +1,54 @@
+/*전체 연산자로 첨부터 지정해도 됨*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    width: 700px;
+    padding: 10px;
+}
+
+.header {
+    background-color: rgb(66, 60, 60);
+    padding: 10px;
+}
+
+.header > h1 {
+    color: white;
+    margin-bottom: 30px;
+}
+
+.header-info {
+    color: orange;
+}
+
+.main {
+    margin-top: 10px;
+}
+.main-check {
+    background-color: rgb(163, 90, 90);
+    color: white;
+    padding: 10px;
+}
+
+.gray-border {
+    border: 1px solid gray;
+    text-align: center;
+}
+.main-info {
+    font-weight: 900;
+    line-height: 2rem;
+}
+h2 {
+    color: red;
+}
+h2, .main-info, .small-text {
+    margin: 20px;
+}
+.accent-blue {
+    color: blue;
+}
+.small-text {
+    font-size: 0.8rem;
+}

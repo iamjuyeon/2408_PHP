@@ -1,0 +1,15 @@
+/* 
+background-clip : html 요소의 배경 색 적용 범위를 지정
+ ** 속성 **
+  border-box : 테두리까지 적용(기본값)
+  padding-box : 패딩범위까지 적용
+  contetn-box : 컨텐츠 부분에만 적용
+  */
+div {
+    background-color: plum;
+    width: 150px;
+    height: 150px;
+    padding: 30px;
+    border: 10px dotted darkblue;
+    background-clip: content-box;
+}

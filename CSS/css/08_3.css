@@ -1,0 +1,59 @@
+div {
+    border: 1px solid #000;
+    width: 400px;
+}
+h1, p {
+    border: 1px solid #000;
+    width: 150px;
+    /*margin: 10px auto;*/
+}
+
+    /*margin 속성 : 외부 여백 지정
+      >1개지정 : 상하좌우
+      >2개지정 : 상하-좌우
+      >3개지정 : 상-좌우-하
+      >4개지정 : 상-우-하-좌
+      >auto : 가운데 정렬(상하 정렬을 안됨, 박스 모델을 가운데 위치 시키고 싶을 때 사용)
+    */
+/*
+마진 중첩
+    HTML 요소를 세소로 배치할 경우 margin과 margin이 만날때,
+    margin 값이 큰 쪽으로 겹쳐지는 현상
+    (가로는 해당 안됨)
+
+이렇게 하면 margin 중첩 현상 발생
+더 큰쪽이 사이즈 가져감
+*/
+h1 {
+    margin: 30px auto;
+}
+p {
+    margin: 20px auto;
+
+}
+
+
+.div-2 {
+    padding: 50px;
+}
+/* padding : 내부 여백 지정*/
+
+/*
+box-shadow : 박스에 그림자를 넣는 속성
+ 수평거리, 수직거리, 흐림정도, 번짐정도, 색상, (inset)
+ inset는 안쪽으로 그림자가 생김
+*/
+
+.div-3, .div-4 {
+    width: 50px;
+    height: 50px;
+    margin: 20px;
+}
+
+.div-3 {
+    box-shadow: 10px 10px 14px 1px #000;
+}
+
+.div-4 {
+    box-shadow: 10px 10px 10px 10px #000 inset;
+}

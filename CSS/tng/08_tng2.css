@@ -1,0 +1,15 @@
+ul {
+    list-style-type: none;
+    width: 400px; /*이렇게 하면 크기 고정됨*/
+}
+li {
+    display: inline-block;
+    width: 80px;
+}
+img {
+    display: inline-block;
+    width: 20px;
+}
+a {
+    text-decoration: none;
+}

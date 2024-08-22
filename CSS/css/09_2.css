@@ -1,0 +1,38 @@
+.div-img {
+    width: 400px;
+    height: 400px;
+    background-image: url('../img/huibao.jpg'), url('../img/huibao.jpg');
+    overflow: scroll;
+/* 
+url(1), url(2) 라고 입력하면 첫번째 사진이 나오지 않으면 두번째 사진이 대신 나옴
+url(1) : 원래 이미지, url(2) : 에러 사진
+*/
+
+/* 배경이미지 크기 설정
+  auto : 원본크기를 유지(기본값)
+  contain : 요소안에 배경 이미지가 다 들어올수 있도록 확대 및 축소
+  cover : 요소를 모두 덮도록 이미지를 확대 및 축소(가장 많이 사용)
+  px, em, rem : 하나의 값을 주어 너비를 지정하고, 너비에 맞기 높이 지정
+  % : 이미지의 비율에 맞도록 조절
+  */
+background-size: cover;
+
+/*
+background-position : 배경 이미지의 초기 위치 설정
+ **속성값
+ 키워드 : top, left, right, bottom, center
+ 퍼센티지 : 25% 75%
+ Edge offsets : bottom 30px right 50px
+*/
+
+background-position: right;
+}
+
+.div-repeat {
+    width: 200px;
+    height: 200px;
+    background-image: url('../img/fire_icon.png');
+    background-repeat: round; /*이미지가 반복해서 나타나지않음*/
+}
+
+

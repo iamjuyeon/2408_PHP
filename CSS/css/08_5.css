@@ -1,0 +1,64 @@
+main, div {
+    padding: 20px;
+}
+
+main {
+    background-color: olive;
+    width: 250px;
+    height: 1000px;
+}
+
+/*
+position : html 요소를 배치하는 방법을 지정
+**속성값**
+  >static : 기본값으로 일반적인 문저의 흐름에 맞춰 배치
+
+relative : static 위치에서 top, right, bottom
+
+  */
+.div-static {
+    background-color: lightgray;
+    position: static; /*기본값*/
+}
+.div-relative {
+    background-color: aqua;
+    position: relative;
+   /* top: 20px;
+    left: 20px;*/
+}
+/*
+absolute
+ >요소가 문서의 일반적인 흐름을 따르지 않게 합니다
+ >relative값을 사용한 상위 요소를 기준으로 위치값 지정 
+*/
+
+/*
+fixed : 뷰 포트(흰 화면)를 기준으로 위치값을 지정 
+*/
+.div-relative-absolute {
+    background-color: antiquewhite;
+    position: relative;
+}
+.div-absolute {
+    background-color: blueviolet;
+    position: absolute;
+    left: 100px;
+    top: 0px;
+}
+/*
+퍼센터 : 부모 기준
+뷰포트 : 뷰포트 기준
+*/
+.div-fixed {
+    background-color: cadetblue;
+    position: fixed;
+    /*left: 80%;
+    bottom: 10%;*/
+    right: 10vw;
+    bottom: 10vh;
+}
+.div-sticky {
+    background-color: palevioletred;
+    position: sticky;
+    top: 0;
+}
