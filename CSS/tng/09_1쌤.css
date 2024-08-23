@@ -1,0 +1,32 @@
+body {
+    background-color: black;
+}
+.container {
+    width: 500px;
+    height: 700px;
+    margin: auto;
+    padding: 30px 15px;
+    background-color: white;
+    background-image: url(../img/막창.jpg);
+    background-repeat: no-repeat;
+    background-size: 300px;
+    background-position: right bottom;
+    border: 1px dotted gray;
+}
+h1 {
+    background-color: darkcyan;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+h3 {
+    color: red;
+}
+ul {
+    list-style-type: none;
+    line-height: 2rem;
+}

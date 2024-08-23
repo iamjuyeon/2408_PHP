@@ -1,0 +1,29 @@
+div {
+    width: 200px;
+    height: 150px;
+    border: 1px solid black;
+    margin: 10px;
+}
+
+/*선형 그라데이션 : 직선을 따라 점진적으로 그라데이션 효과
+  : linear-gradient
+  : 두개의 색깔을 순서대로 작성(갯수 제한 없음)
+  : 방향 지정 가능 to top, to bottom
+  : 각도 지정 가능 deg
+  : 색상 위치 조정 가증 색깔 50%*/
+.div1 {
+    background: linear-gradient(
+        to bottom, blue 1%, skyblue , white
+        );
+}
+
+/*원형 그라데이션 
+   : radial-gradient
+   : 모양 지정 가능(원형 circle , 타원형 ellipse)
+   : 각도 조정 가능 circle at 기준점->0%<-왼쪽 위 각 기준 0%)
+*/
+.div2 {
+    background: radial-gradient(
+        circle at 100% 90%, blue, yellow
+    );
+}

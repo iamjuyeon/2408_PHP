@@ -1,0 +1,79 @@
+/*가상선택자(pseudo selector)
+    html 요소의 상태에 따라 선택해서 스타일을 지정하는 선택자
+    기본형태) 선택자:가상클래스명
+*/
+/*한번도 방문한적이 없는 링크 요소를 선택*/
+a:link {
+    color: red;
+}
+
+/*한번이라도 방문했던 링크 요소를 선택*/
+a:visited {
+    color: green;
+}
+
+/*마우스 커서가 올라가있는 링크 요소를 선택*/
+a:hover , h1:hover{
+    color: coral;
+}
+/*링크를 클릭하고 있는(꾹 누르고 있을때) 요소를 선택*/
+a:active {
+    font-size: 5rem;
+}
+/*포커스가 적용되어 있는 요소를 선택*/
+input:focus {
+    border:3px solid yellow;
+    outline: none; /*input태그의 기본 외곽선 제거*/
+}
+/*input {
+    width: 300px;
+    height: 20px;
+}*/
+/*체크된 상태의 input 요소를 선택*/
+input:checked + label {
+    background-color: greenyellow;
+}
+
+/*문서 내부 링크의 현재 활성화된 요소를 선택*/
+#p1:target {
+    background-color: pink;
+
+}
+#p2:target {
+    background-color: aquamarine;
+}
+
+/*해당 선택자의 요소를 제외한 나머지 요소에 스타일 적용*/
+.container :not(h3) {
+    color: red;
+}
+
+/*n번째 자식 요소에 스타일 적용*/
+.container :nth-child(3) {
+    color: lime;
+}
+
+/*n번째 자식 요소 이하 부터 스타일 적용
+   (n+5)=5번재부터 아래 쭉~
+   (-n+5)=5번째 까지 적용
+*/
+.container :nth-child(n + 5) {
+    color: slateblue;
+}
+/*nth : 서수*/
+.container :nth-child(n + 2):nth-child(-n+4) {
+    color: silver; /*2번째부터 4번째 까지*/
+}
+
+/*홀짝 순서 자식 요소 스타일 적용*/
+.container :nth-child(odd) {
+    background-color: orchid;
+}
+.container :nth-child(even) {
+    background-color: gold;
+}
+
+/*부모 요소 내에서 특정 유형의 n번째 자식 선택 */
+.container p:nth-of-type(2) {/*<container>안 두번쩨 <p> */
+    font-size: 2rem;
+}

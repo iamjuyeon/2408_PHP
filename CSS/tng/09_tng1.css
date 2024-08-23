@@ -1,0 +1,46 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+h1 {
+    color: white;
+    background-color: rgb(14, 90, 61);
+    text-align: center;
+    padding: 20px;
+    margin: 30px auto;
+    width: 500px;
+}
+h2 {
+    text-align: center;
+    font-style: italic;
+    padding: 20px;
+    margin: 30px auto;
+    width: 500px;
+}
+.main-table {
+    border: 1px dotted gray;
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-image: url(../img/막창.jpg);
+    background-position: bottom right;
+    width: 600px;
+    height: 700px;
+}
+.title {
+    color: red;
+    font-size: 20px;
+    font-weight: 900;
+    padding-left: 20px;
+    margin: 10px;
+}
+.notice {
+    line-height: 2rem;
+    list-style-position: inside;
+    list-style: none;
+    padding-left: 70px;
+    margin-bottom: 20px;
+}
+.table-img {
+    width: 300px;
+    height: 200px;
+}
