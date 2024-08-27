@@ -1,0 +1,26 @@
+/*
+가상요소 '::'
+    선택자에 추가되는 키워드
+    선택한 요소의 지정된 부분에 스타일을 적용
+    가장 나중에 지정된 태그만 적용되지 않고 중첩됨
+*/
+/* class ruquired에 가상요소 before를 넣겠다*/
+/*.required::before {
+    content: '* ';
+    color: red;
+}*/
+.required::after {
+    content: '* ';
+    color: red;
+}
+
+/*특정요소의 첫글자를 선택하는 가장 요소*/
+p::first-letter {
+    color: blueviolet;
+    font-weight: 900;
+    font-size: 30px;
+}
+/*특정요소의 첫 라인(줄)을 선택*/
+p::first-line {
+    color: olive;
+}

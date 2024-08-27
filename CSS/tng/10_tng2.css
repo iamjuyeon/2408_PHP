@@ -1,0 +1,97 @@
+/*fieldset {
+    width: 450px;
+    height: 380px;
+    background-image: url('../img/Apple.png');
+    background-repeat: no-repeat;
+    background-position: center 50px;
+
+}
+legend {
+    color: magenta;
+    font-size: 30px;
+    font-weight: 900;
+}
+.required::before {
+    content: '*';
+    color: red;
+}
+.sex::before {
+    content: '*';
+    color: red;
+}
+input:focus {
+    border:3px solid red;
+    outline: none;
+}
+textarea:focus {
+    border:3px solid red;
+    outline: none;
+}
+#male:checked + label {
+    color: red;
+}
+#female:checked + label {
+    color: red;
+}
+textarea {
+    vertical-align: top;
+
+}
+input, textarea {
+    background: none;
+}
+.popup {
+    color: white;
+    background-color: black;
+    font-size: 20px;
+    display: none;
+    box-sizing: border-box;
+}
+button:hover + .popup {
+    display: inline;
+}
+*/
+
+fieldset {
+    background-image: url('../img/Apple.png');
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: top;
+}
+
+legend {
+    color: magenta;
+    font-size: 2rem;
+    font-weight: 900;
+}
+.label-required::before {
+    content: '*';
+    color: red;
+}
+input, textarea {
+    background-color: transparent; /*투명*/
+}
+
+#memo {
+    vertical-align: top;
+}
+
+input:focus, textarea:focus {
+    border: 3px solid red;
+    outline: none;
+}
+
+.radio-gender:checked + label {
+    color: red;
+}
+.hide {
+    display: none;
+    margin: 0;
+    background-color: black;
+    color: white
+    ;
+}
+
+.btn-send:hover + .hide {
+    display: inline-block;
+}
