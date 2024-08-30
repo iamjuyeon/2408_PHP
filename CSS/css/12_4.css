@@ -1,0 +1,118 @@
+.item {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-color: cornflowerblue;
+}
+
+.container-row {
+    display: flex;
+
+    /*가로축으로 정렬(기본값)*/
+    flex-direction: row /*주축*/
+
+    /*세로축 정렬
+    flex-direction: colunmn*/
+}
+
+.container-wrap {
+    display: flex;
+
+    /*기본설정(개행없음)*/
+    /*flex-wrap: nowrap;*/
+
+    /*너비가 모자르면 개행*/
+    flex-wrap: wrap; /*reverse(반대)*/
+}
+
+/*diredction과 wrap을 동시에*/
+.container-flow {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+/*justify-content : 주축을 기준으로 정렬*/
+.container-justify-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*justify-content: center;
+    /*flex-start : 주축의 시작점에 배치
+      flex-end : 끝점에 맞추어 배치
+      center : 가운데에 맞추어 배치*/
+
+    /*주죽의 시작점에 첫번째 항목을 배치
+      주축의 끝점에 마지막 항목을 배치하고,
+      나머지 항목들을 적절한 간격으로 조절
+      사실상 레이어 사이의 간격을 주는거*/
+
+    /*justify-content: space-between;*/
+    justify-content: space-around;
+    /*gap: 20px; 아이템 사이사이 상하좌우 간격*/
+} 
+
+.container-aline-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 700px;
+    background-color: darkslategray;
+
+    /*교차축의 시작점에 맞춰서 배치*/
+    /*aline-items: flex-start;*/
+
+    /*교차축의 끝점에 맞춰서 배치*/
+    /*align-items: flex-end;*/
+
+    /*교차축의 가운데에 맞춰서 배치*/
+    align-items: center;
+}
+
+.container-align-self {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 700px;
+    background-color: darkslategray;
+    
+}
+
+.container-align-self :nth-child(1) {
+    /*교차축의 시작점에 맞추어 배치*/
+    align-self: flex-start;
+}
+
+.container-align-self :nth-child(2) {
+    /*교차축의 끝점에 맞추어 배치*/
+    align-self: flex-end;
+}
+
+.container-align-self :nth-child(5) {
+    /*교차축의 가운데에 맞추어 배치*/
+    align-self: center;
+}
+
+.container-align-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 700px;
+    background-color: darkslategray;
+    
+    /*content와 item의 차이
+     -> content는 item의 전채*/
+    
+    /*교차축 전체의 아이템의 정렬*/
+    /*align-content: flex-start;*/  
+
+    /*교차축 끝점에 맞추어 배치*/
+    /*align-content: flex-end;*/
+
+    /*교차축의 가운데에 맞추어 배치*/
+    /*align-content: center;*/
+
+
+    /*align-content: space-between;*/
+    /*교차축에 같은 간격으로 배치*/
+    align-content: space-around;
+}

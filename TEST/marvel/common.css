@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: 100vh;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+.sidebar {
+    background-color: #ff3b49;
+}
+
+h1 {
+    color: white;
+    margin: 3rem auto;
+    text-align: center;
+}
+
+.side-menu {
+    color: white;
+    list-style: none;
+    margin-bottom: 3rem;
+}
+
+.side-menu > li {
+    padding: 0.3rem 1rem;
+}
+
+.side-menu > li:nth-child(1) {
+    background-color: #ff5662;
+    font-weight: 900;
+}
+
+.side-menu > li:not(:nth-child(1)):hover {
+    /*background-color: #000;*/
+    background-color: rgba(0,0,0,0.8);
+    /*opacity: 0.8; /*투명도*/
+    transition: all 1.5s; /*all:모든 속성에 transition효과를 주겠다*/
+}
+.main {
+    background-color: lightgray;
+}
+
+.main-search-bar {
+    height: 50px;
+}
+
+.main-search-bar > form {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 1rem;
+}
+
+#search {
+    width: 80%;
+}
+
+.btn-search {
+    color: #ffff;
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: #6252f0;
+}
+
+.main-title-bar {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../marvel/img/main_title.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h2 {
+    color: #fff;
+    font-size: 3rem;
+    
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.card {
+    background-color: #fff;
+    padding: 1rem;
+}
+
+.card-img {
+   padding-top: 70%; /*부모의 width의 70%*/
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.card-title {
+    margin: 1rem 0;
+}
+
+
+.btn-top {
+    color: #fff;
+    font-weight: 900;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #000;
+    border: none;
+}

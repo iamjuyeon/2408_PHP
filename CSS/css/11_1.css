@@ -1,0 +1,27 @@
+.ball {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    animation: updown 5s infinite;
+    border-top: 2px solid red;
+    border-bottom: 2px solid blue;
+}
+
+@keyframes updown {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+.container {
+    position: relative;
+}
+.absolute {
+    position: absolute;
+    top: 40px;
+    left: 25px;
+}

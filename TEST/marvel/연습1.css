@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: 100vh; /*이게 생각이 안남*/
+}
+
+.side-left {
+    background-color: teal;
+}
+
+.title {
+    color: #fff;
+    margin: auto;
+    text-align: center;
+    padding: 3rem 1rem;
+
+}
+
+.side-menu {
+    color: #fff;
+    list-style: none;
+    margin-bottom: 3rem;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.side-menu >li {
+    padding: 0.5rem 1rem;
+}
+
+.side-menu >li:nth-child(1) {
+    color: #000;
+    font-weight: 900;
+    background-color: #fff;
+    opacity: 0.8;
+}
+
+.side-menu >li:not(:nth-child(1)):hover {
+    color: #000;
+    font-weight: 900;
+    background-color: #cecece;
+    transition: all 0.8s;
+}
+
+.main {
+    background-color: rgb(201, 201, 201);
+}
+
+.main-search-bar {
+    height: 50px;
+}
+
+.main-search-bar > form {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 1rem;
+}
+
+#search {
+    color: rgb(141, 13, 158);
+    width: 80%;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 휴먼엑스포;
+}
+
+.btn-search {
+    color: #fff;
+    font-weight: 900;
+    font-size: 25px;
+    background-color: teal;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.main-title-bar {
+    color: #fff;
+    font-size: 70px;
+    font-family: 경기천년제목;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./img/main_title.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.card {
+    background-color: #fff;
+    padding: 1rem;
+}
+
+.card-img {
+    padding-top: 70%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-title {
+    padding-top: 0.5rem;
+}
+
+.btn-top {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: teal;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #000;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}

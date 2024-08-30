@@ -1,0 +1,51 @@
+.container {
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    height: 650px;
+    gap: 10px;
+    justify-content: center;
+    align-content: center;
+}
+
+/*공통된 요소가 많을때는 가장 위에다 적어야됨*/
+.item {
+    border: 1px solid black;
+    background-color: turquoise;
+    width: 200px;
+    height: 200px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.main-col1 {
+    width: 410px;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+}
+.footer-row2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item56 {
+    height: 95px;
+}

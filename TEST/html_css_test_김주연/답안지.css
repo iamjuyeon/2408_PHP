@@ -1,0 +1,131 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    color: #fff;
+    background-image: url('./img/img_1.jpg');
+    display: flex;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+header > h1 {
+    font-size: 4rem;
+    min-width: 400px;
+}
+
+.header-info {
+    max-width: 50%;
+}  
+@media (max-width: 800px) {
+    .header-info {
+        max-width: 50%;
+    }
+}    
+여기 까지 플렉스로 하는 방법이었다 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /*사파리에서는 안됨*/
+}
+
+/* common */
+button {
+    color: white;
+    font-size: 1.5rem;
+    background-color: goldenrod;
+    border-radius: 5px;
+    border: none;
+    padding: 15px;
+}
+
+button:hover {
+    opacity: 0.5;
+    transition: all 1.5s;
+}
+
+/* header */
+header {
+    color: #fff;
+    background-image: url('./img/img_1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    padding: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+}
+
+header > h1 {
+    font-size: 4rem;
+    margin: 5rem 0;
+}
+
+.header-info > p {
+    font-size: 1.5rem;
+    margin: 30px 0;
+}
+
+/* main */
+main {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+/* card */
+.card {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.main-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 70%;
+    position: relative;
+}
+
+.img-title {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 900;
+    background-color: rgba(0,0,0,0.7);
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.card > a >button {
+    font-size: 1rem;
+    width: 100%;
+
+}
+
+/* footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: darkslategrey;
+    color: #fff;
+    width: 100vw;
+    padding: 20px;
+
+}
+
+footer > p {
+    text-align: center;
+}
