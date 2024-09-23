@@ -1,209 +1,275 @@
--- 1. 직급테이블
-SELECT *
+-- 1. 사원의 사원번호 이름 직급코드
+SELECT 
+	employees.emp_id
+	,employees.name
+	,title_emps.title_code
+FROM 
+	employees
+	JOIN title_emps
+		ON employees.emp_id = title_emps.emp_id
+		AND title_emps.end_at IS null
+;
+
+
+-- 2. 사원의 사번, 성별, 현재 연봉
+SELECT
+	employees.emp_id
+	,employees.gender
+	,salaries.salary
+FROM employees
+	JOIN salaries
+		ON salaries.emp_id = employees.emp_id
+		AND salaries.end_at IS null
+;
+
+-- 3. 10010 사원의 이름, 과거부터 현재까지의 연봉 이력
+SELECT 
+	name
+FROM employees
+WHERE emp_id = 10010;
+
+SELECT
+	salary
+FROM salaries
+WHERE emp_id = 10010;
+-- ----------------------------
+SELECT
+	employees.name
+	,(
+		SELECT salaries.salary
+		FROM salaries
+		WHERE
+		salaries.emp_id = employees.emp_id
+		and salaries.emp_id = 10010
+ 		) 
+FROM employees
+;
+-- 정답 --------------------------------
+SELECT
+	employees.name
+	,salaries.salary
+FROM employees
+	JOIN salaries
+	ON salaries.emp_id = employees.emp_id
+WHERE salaries.emp_id = 10010
+;
+-- -----------------------------------------
+
+SELECT
+	employees.name
+	,salaries.sala
+
+
+-- 4. 사원의 사원번호, 이름, 소속부서명
+SELECT 
+	employees.emp_id
+	,employees.name
+	,departments.dept_name
+FROM employees
+	JOIN department_emps
+	ON employees.emp_id = department_emps.emp_id
+	JOIN departments
+	ON departments.dept_code = department_emps.dept_code
+	and department_emps.end_at IS null
+;
+
+
+-- 5. 현재 연봉의 상위 10위까지 사원의 사번, 이름, 연봉
+SELECT
+	employees.emp_id
+	,employees.name
+FROM employees
+WHERE
+	employees.emp_id IN (
+		SELECT 
+			salaries.salary
+			,RANK() OVER(ORDER BY salaries.salary DESC) AS sal_rank
+		FROM salaries
+		LIMIT 10)
+;
+
+-- ---------------------------
+SELECT
+	salaries.salary
+	,RANK() OVER(ORDER BY salaries.salary DESC) AS sal_rank
+FROM salaries
+LIMIT 10;
+
+-- ----------------------------------
+SELECT
+	employees.emp_id
+	,employees.name
+	,salaries.salary
+FROM employees
+	JOIN salaries
+	ON employees.emp_id = salaries.emp_id
+	AND salaries.end_at IS NULL
+ORDER BY salaries.salary DESC
+LIMIT 10
+;
+
+-- 
+SELECT
+	employees.emp_id
+	,employees.name
+	,salaries.salary
+	,RANK() OVER(ORDER BY salaries.salary DESC) AS sal_rank
+FROM employees
+	JOIN salaries
+	ON employees.emp_id = salaries.emp_id
+	AND salaries.end_at IS NULL
+LIMIT 10
+;
+
+
+
+-- 6. 현재 각 부서의 부서장의 부서명, 이름, 입사일
+SELECT
+	employees.name
+	,employees.hire_at
+	,departments.dept_name
+FROM employees
+ 	JOIN department_managers
+ 	ON	employees.emp_id = department_managers.emp_id
+	JOIN departments
+	ON department_managers.dept_code = departments.dept_code
+WHERE
+ 	department_managers.end_at IS null
+;
+
+-- 7. 현재 직급이 '부장(T005)'인 사원들의 연봉 평균을 출력
+SELECT
+	AVG(salaries.salary)
+FROM salaries
+	JOIN title_emps
+	ON salaries.emp_id = title_emps.emp_id
+	JOIN titles
+	ON title_emps.title_code = titles.title_code
+WHERE
+	title_emps.title_code = 'T005'
+	AND title_emps.end_at IS null
+;
+-- 다른 사람 답---------------
+SELECT
+	AVG(salaries.salary)
 FROM title_emps
-;
-
-/*2. 급여 60,000,000 이하*/
-SELECT emp_id
-FROM salaries
+	JOIN salaries
+	ON salaries.emp_id = title_emps.emp_id
+	JOIN titles
+	ON title_emps.title_code = titles.title_code
 WHERE
-	salary <= 60000000
+	titles.title = '부장'
+	AND title_emps.end_at IS null
 ;
 
-SELECT distinct
-emp_id
-FROM salaries
-WHERE
-	salary <= 60000000
+-- 
+
+SELECT
+	title_emps.emp_id
+	,titles.title
+	,AVG(salaries.salary) avg_sal
+FROM title_emps
+	JOIN titles
+		ON title_emps.title_code = titles.title_code
+		AND titles.title = '부장'
+		AND title_emps.end_at IS null
+	JOIN salaries
+		ON salaries.emp_id = title_emps.emp_id
+GROUP BY title_emps.emp_id
 ;
 
--- 3. 급여 6천만원~7천만원 사번
-SELECT emp_id
-FROM salaries
-WHERE
-	salary >= 60000000
-	AND salary <= 70000000
+-- 전체 평균
+SELECT
+	titles.title
+	,AVG(salaries.salary) as avg_sal
+FROM title_emps
+	JOIN titles
+		ON title_emps.title_code = titles.title_code
+		AND titles.title='부장'
+		AND title_emps.end_at IS null
+	JOIN salaries
+		ON title_emps.emp_id = salaries.emp_id
+		AND salaries.end_at IS null
+GROUP BY titles.title
 ;
-
--- 4. 사번이 10001, 10005인 사원테이블 정보 조회
-SELECT *
+-- 부장의 이름과 평균연봉 출력
+SELECT
+	employees.emp_id
+	,employees.name
+	,AVG_table.avg_sal
 FROM employees
-WHERE 
-	emp_id IN (10001, 10005)
+	JOIN (
+		SELECT  
+			title_emps.emp_id
+			,AVG(salaries.salary) avg_sal
+		FROM title_emps
+			JOIN titles
+				ON title_emps.title_code = titles.title_code
+				AND titles.title='부장'
+				AND title_emps.end_at IS NULL
+			JOIN salaries
+				ON title_emps.emp_id = salaries.emp_id
+			GROUP BY title_emps.emp_id
+			) avg_table
+	ON employees.emp_id = avg_table.emp_id
+;
+	
+
+-- 8. 부서장직을 역임했던 모든 사원의 이름과 입사일, 사번, 부서번호
+SELECT
+	employees.name
+	,employees.hire_at
+	,employees.emp_id
+	,department_managers.dept_code
+FROM employees
+	JOIN department_managers
+	ON employees.emp_id = department_managers.emp_id
 ;
 
--- 5. '사'가 포함된 직급코드와 직급명
-SELECT 
-	title_code
-	,title
+-- 9. 현재 각 직급별 평균연봉 중 60,000,000이상인 직급의
+-- 직급명, 평균연봉(정수)를 평균연봉 내림차순으로 출력
+SELECT
+ 	titles.title
+ 	,round(AVG(salaries.salary))
 FROM titles
-where	 
-	title LIKE '%사%'
-;
 
--- 6. 사원 이름 오름차순 
-SELECT NAME
-FROM employees
-ORDER BY NAME ASC
 ;
-
--- 7. 사원별 전체 급여 평균
-SELECT 
-	employees.emp_id
-	,(
-	select AVG(salaries.salary)
-	FROM salaries
-	WHERE
-		employees.emp_id=salaries.emp_id
-	) AS avg_sal
-FROM employees
-; 
--- ------------------------------------
+-- 
 SELECT
-	emp_id
-	,AVG(salary) avg_sal
+	titles.title
+	,ceiling(AVG(salaries.salary)) AS avg_sal
 FROM salaries
-GROUP BY emp_id
+	JOIN title_emps
+		ON salaries.emp_id = title_emps.emp_id
+		AND salaries.end_at IS null
+		AND title_emps.end_at IS NULL
+	JOIN titles
+		ON title_emps.title_code = titles.title_code
+GROUP BY titles.title
+	HAVING avg_sal >= 60000000
+ORDER BY avg_Sal desc
 ;
 
--- 8. 사원별 전체 급여 평균 3천만원~5천만원인 사원번호, 평균급여
-SELECT 
-	employees.emp_id
-		,(
-	select AVG(salaries.salary)
-	FROM salaries
-	WHERE
-		employees.emp_id=salaries.emp_id
-		and salary >= 30000000
-		AND salary <= 50000000
-	) AS avg_sal
-FROM employees
-; 
--- -------------------------------------
+-- 10. 성별이 여자인 사원들의 직급별 사원수
 SELECT
-	employees.emp_id
-	,(
-	select AVG(salaries.salary)
-	FROM salaries
-	WHERE
-		employees.emp_id=salaries.emp_id
-		and salary BETWEEN 30000000 AND 50000000
-	) AS avg_sal
+	title_emps.title_code
+	,COUNT(*) AS cnt
 FROM employees
-; 
--- -------------------------------------
-SELECT 
-	emp_id
-	,AVG(salary) avg_sal
-FROM salaries
-GROUP BY emp_id
-	having
-		avg_sal BETWEEN 30000000 AND 50000000
+	JOIN title_emps
+		ON employees.emp_id = title_emps.emp_id
+		AND title_emps.end_at IS null
+		AND employees.fire_at IS null
+		AND employees.gender = 'F'
+GROUP BY title_emps.title_code
 ;
 		
 
 
--- 9. 사원별 전체 급여 평균 7천만원 이상인 사원 사번, 이름, 성별
-SELECT 
-	employees.emp_id
-	,employees.name
-	,employees.gender
-	,(
-	SELECT AVG(salaries.salary)
-	FROM salaries
-	where
-		employees.emp_id=salaries.emp_id
-		and salary >= 70000000
-	) AS avg_sal
-FROM employees
-;
--- -------------------------
-SELECT
-	employees.emp_id
-	,employees.name
-	,employees.gender
-FROM employees
-WHERE employees.emp_id IN (
-	SELECT salaries.emp_id
-	FROM salaries
-	where
-		employees.emp_id=salaries.emp_id
-		and salary >= 70000000
-	)
-;
 
--- -----------------------
-SELECT
-	employees.emp_id
-	,employees.name
-	,employees.gender
-FROM employees
-WHERE employees.emp_id IN (
-	SELECT 
-		salaries.emp_id
-	FROM salaries
-	GROUP by
-		employees.emp_id=salaries.emp_id
-	HAVING AVG(salary) >= 70000000
-	)
-;
 
--- ------------------------------
-SELECT 
-	employees.emp_id
-	,employees.name
-	,employees.gender
-	,(
-	SELECT 
-		,AVG(salaries.salary)
-	FROM salaries
-	GROUP BY salaries.emp_id
-		having
-			AVG(salary) >= 70000000
-)
-;
--- -----------------------------------
-SELECT
-	employees.emp_id
-	,employees.name
-	,employees.gender
-FROM employees
-WHERE employees.emp_id IN (
-	SELECT 
-		salaries.emp_id
-	FROM salaries
-	GROUP by
-		salaries.emp_id
-	HAVING AVG(salary) >= 70000000
-	)
-;
+
 
 	
--- 10. 현재 'T005' 사원번호, 이름
-SELECT
-	employees.emp_id
-	,employees.name
-FROM employees
-WHERE employees.emp_id IN (
-	SELECT title_emps.emp_id
-	FROM title_emps
-	where
-		title_emps.title_code = 'T005'
-		AND title_emps.end_at IS Null
-	)
-;
-
-SELECT
-	emp_id
-	,title_code
-FROM title_emps
-WHERE 
-	title_code = 'T005'
-	AND end_at IS null
-;
-
-
-
-
-
-
+	
+	
+	
