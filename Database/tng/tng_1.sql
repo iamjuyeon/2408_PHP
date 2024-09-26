@@ -10,6 +10,13 @@ WHERE
 	salary <= 60000000
 ;
 
+SELECT distinct
+emp_id
+FROM salaries
+WHERE
+	salary <= 60000000
+;
+
 -- 3. 급여 6천만원~7천만원 사번
 SELECT emp_id
 FROM salaries
@@ -51,6 +58,13 @@ SELECT
 	) AS avg_sal
 FROM employees
 ; 
+-- ------------------------------------
+SELECT
+	emp_id
+	,AVG(salary) avg_sal
+FROM salaries
+GROUP BY emp_id
+;
 
 -- 8. 사원별 전체 급여 평균 3천만원~5천만원인 사원번호, 평균급여
 SELECT 
@@ -80,11 +94,11 @@ FROM employees
 -- -------------------------------------
 SELECT 
 	emp_id
-	,AVG(salary)
+	,AVG(salary) avg_sal
 FROM salaries
 GROUP BY emp_id
 	having
-		AVG(salary) BETWEEN 30000000 AND 50000000
+		avg_sal BETWEEN 30000000 AND 50000000
 ;
 		
 
@@ -125,7 +139,8 @@ SELECT
 	,employees.gender
 FROM employees
 WHERE employees.emp_id IN (
-	SELECT salaries.emp_id
+	SELECT 
+		salaries.emp_id
 	FROM salaries
 	GROUP by
 		employees.emp_id=salaries.emp_id
@@ -133,6 +148,37 @@ WHERE employees.emp_id IN (
 	)
 ;
 
+-- ------------------------------
+SELECT 
+	employees.emp_id
+	,employees.name
+	,employees.gender
+	,(
+	SELECT 
+		,AVG(salaries.salary)
+	FROM salaries
+	GROUP BY salaries.emp_id
+		having
+			AVG(salary) >= 70000000
+)
+;
+-- -----------------------------------
+SELECT
+	employees.emp_id
+	,employees.name
+	,employees.gender
+FROM employees
+WHERE employees.emp_id IN (
+	SELECT 
+		salaries.emp_id
+	FROM salaries
+	GROUP by
+		salaries.emp_id
+	HAVING AVG(salary) >= 70000000
+	)
+;
+
+	
 -- 10. 현재 'T005' 사원번호, 이름
 SELECT
 	employees.emp_id
@@ -155,9 +201,6 @@ WHERE
 	title_code = 'T005'
 	AND end_at IS null
 ;
-
-
-
 
 
 

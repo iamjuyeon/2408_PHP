@@ -16,7 +16,10 @@
     background-color:  #B9A9FF;
     border-radius: 40px;
     color: #fff;
-
+    /* 글자수 초과시 ... 처리*/
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .list-content {
