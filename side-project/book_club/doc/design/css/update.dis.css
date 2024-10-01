@@ -13,57 +13,47 @@
 
 }
 
+.post_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 70px ;
+    padding-top: 40px;
+    
+
+}
+
 .box {
     display: flex;
-    justify-content: center;
-    padding-top: 30px;
-    margin-bottom: 30px;
+    border: solid 1px #000;
+    width: 660px;
 }
 
 .box_title {
-    font-size: 1.3rem;
-    text-align: center;
-    padding: 10px;
     background-color: #D1AAE8;
-    border: solid 1px #000;
-    width: 90px;
+    font-size: 1.3rem;
+    padding: 10px;
+    width: 180px;
+    text-align: center;
 }
+
+/* .box_content {
+    font-size: 1.2rem;
+    background-color: #FFFBF1;
+    width: 480px;
+    padding: 10px;
+    border-left: solid 1px #000;
+} */
 
 .insert {
     background-color: #FFFBF1;
-    height: 45px;
-    border: solid 1px #000;
-}
-
-input {
-    font-size: 1.2rem;
     padding: 10px;
-    background-color: #FFFBF1;
-    height: 43px;
-    border: none;
     outline: none;
-}
-
-#name {
-    width: 160px;
-}
-
-#title {
-    width: 310px;
+    border: none;
 }
 
 
-.box_content_title {
-    text-align: center;
-    font-size: 1.3rem;
-    background-color: #D1AAE8;
-    border: solid 1px #000;
-    width: 150px;
-    padding: 10px 40px;
-    margin-left: 70px;
-}
-
-.box_content {
+.box_content :nth-child(n+1) {
     background-color: #FFFBF1;
     border: solid 1px #000;
     margin: 0 70px 20px 70px;
@@ -71,7 +61,7 @@ input {
     height: 350px;
 }
 
-.box_content > textarea {
+.box_content >textarea {
     background-color: #FFFBF1;
     padding: 10px;
     width: 650px;
@@ -81,6 +71,17 @@ input {
     outline: none;
     resize: none;
 }
+
+.content {
+    font-size: 1.2rem;
+    background-color: #FFFBF1;
+    border: solid 1px #000;
+    margin: 0 70px 20px 70px;
+    width: 660px;
+    height: 330px;
+    padding: 10px;
+}
+
 
 .board_footer {
     display: flex;

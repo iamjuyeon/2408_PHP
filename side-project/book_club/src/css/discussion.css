@@ -51,10 +51,10 @@
     background-color: #FFFBF1;
     text-align: center;
     font-size: 1.2rem;
-    height: 57px;
     display: grid;
     grid-template-columns: 50px 2fr 1fr 2fr;
     padding: 18px 10px 18px 10px;
+    height: 57px;
 
 }
 

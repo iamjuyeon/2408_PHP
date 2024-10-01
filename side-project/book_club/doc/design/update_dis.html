@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/background.css">
+    <link rel="stylesheet" href="./css/update.dis.css">
+    <title>발제문 수정</title>
+
+</head>
+<body>
+        <div class="board_title" style="background-image: url('../img/창_이모티콘.png');">
+        <p>발제문</p>
+    </div>
+    <div class="container">
+        <form action="./detail_dis.html"></form>
+            <div class="post_box">
+                <div class="box">
+                    <div class="box_title">이름</div>
+                    <div>
+                        <input type="text" id="name" class="insert" value="필릭스" >
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box_title">작성 일자</div>
+                    <div class="box_content">2024-09-26</div>
+                </div>
+                <div class="box">
+                    <div class="box_title">제목</div>
+                    <div>
+                        <input type="text" id="title" class="insert" value="필릭스" maxlength="20">
+                    </div>
+                </div>
+            </div>
+            <div class="box_content">
+                <textarea name="content" id="content" required>내용6</textarea>
+            </div>
+            <div class="board_footer">
+                <button class="btn"><a href="./discussion.html">수정</a></button>
+                <button class="btn"><a href="./discussion.html">목록</a></button>
+                <button class="btn"><a href="./discussion.html">취소</a></button>
+            </div>
+        </form>
+    </div>
+        
+    <div class="menu_bar">
+        <a href="./main.html">
+            <img class="home_btn" src="../img/home_btn.png" alt="메인" width="146px" height="43px">
+        </a>
+    </div>
+</body>
+</html>

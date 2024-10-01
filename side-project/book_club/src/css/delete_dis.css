@@ -1,0 +1,51 @@
+.board_title {
+    color: #fff;
+    background-color: #D1AAE8;
+    border: solid 1px #000;
+    border-radius: 10px 10px 0 0;
+    height: 45px;
+    width: 800px;
+    padding: 8px;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 13%;
+    font-size: 25px;
+
+}
+
+.container {
+    /* display: grid;
+    grid-template-rows: 1f 400px 1fr; */
+    padding: 200px;
+}
+
+.delete_popup {
+    width: 400px;
+    height: 150px;
+    background-color: #FFFBF1;
+    text-align: center;
+    border: solid 1px #000;
+}
+
+.content {
+    padding: 20px;
+}
+
+.btn {
+    background-color: #D1AAE8;
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 5px;
+    margin-right: 34px;
+    box-shadow: 5px 5px 1px #7E796F;
+}
+
+.delete {
+    background-color: #D1AAE8;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 18%;
+    border: solid 1px #000;
+    width: 400px;
+    height: 30px;
+}

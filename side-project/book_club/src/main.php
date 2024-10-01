@@ -9,14 +9,14 @@
 <body>
     <div class="container">
         <div class="folder">
-            <a href="./discussion.html">
+            <a href="./discussion.php">
             <div class="folder_icon"></div>
             <p>발제문</p>
             </a>    
         </div>
         <div></div>
         <div class="folder">
-            <a href="./sentense.html">
+            <a href="./sentense.php">
             <div class="folder_icon"></div>
             <p>인상깊은 구절</p>
             </a>
@@ -29,10 +29,10 @@
             </a>
         </div>
     </div>
-        <div class="menu_bar">
-            <a href="./main.html">
+    <div class="menu_bar">
+            <a href="/main.php">
                 <img class="home_btn" src="../img/home_btn.png" alt="메인" width="146px" height="43px">
             </a>
-        </div>
+    </div>
 </body>
 </html>

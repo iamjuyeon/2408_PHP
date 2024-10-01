@@ -1,4 +1,40 @@
- <!DOCTYPE html>
+<?php 
+require_once($_SERVER["DOCUMENT_ROOT"]."/config.php");
+require_once(MY_PATH_DB_LIB);
+
+$conn = null;
+
+if(strtoupper($_SERVER["REQUEST_METHOD"] === "POST")) {
+    try {
+        $conn = my_db_conn();
+
+        $arr_prepare = [
+            "title" => $_POST["title"]
+            ,"NAME" => $_POST["name"]
+            ,"content" => $_POST["content"]
+        ];
+
+    $conn->beginTransaction();
+    discussion_insert($conn, $arr_prepare);
+    
+    $conn->commit();
+    header("Location: /discussion.php");
+    exit;
+
+    } catch(Throwable $th) {
+        if(!is_null($conn)) {
+            $conn->rollBack();
+        }
+        require_once(MY_PATH_ERROR);
+        exit;
+    }
+
+}
+
+
+?>
+
+<!DOCTYPE html>
  <html lang="ko">
  <head>
     <meta charset="UTF-8">
@@ -12,7 +48,7 @@
         <p>발제문 글 작성</p>
     </div>
     <div class="container">
-        <form action="./discussion.html">
+        <form action="/post_discussion.php" method="post">
             <div class="box">
                 <div class="box_title">이름</div>
                 <div class="insert">
@@ -26,12 +62,12 @@
                 <div>
                 <div class="box_content_title">내용</div>
                 <div class="box_content">
-                    <textarea name="content" id="content" name="content" required></textarea>
+                    <textarea name="content" id="content" required></textarea>
                 </div>
                 </div>
             <div class="board_footer">
-                <button class="btn"><a href="./discussion.html">취소</a></button>
-                <button class="btn"><a href="./discussion.html">완료</a></button>
+                <a href="/discussion.php"><button class="btn" type="button">취소</button></a>
+                <button class="btn" type="submit">완료</button>
             </div>
         </form>
 
@@ -39,7 +75,7 @@
 
     </div>
     <div class="menu_bar">
-        <a href="./main.html">
+        <a href="/main.php">
             <img class="home_btn" src="../img/home_btn.png" alt="메인" width="146px" height="43px">
         </a>
     </div>
