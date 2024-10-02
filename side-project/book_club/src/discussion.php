@@ -71,7 +71,7 @@ try {
             
             <div class="item">
                 <div><?php echo $item["id"] ?></div>
-                <a href="/detail.dis.php?id=<?php echo $item["id"]?>&page=<?php echo $page ?>"><div><?php echo $item["title"]?></div></a>
+                <a href="/detail_dis.php?id=<?php echo $item["id"]?>&page=<?php echo $page ?>"><div><?php echo $item["title"]?></div></a>
                 <div><?php echo $item["NAME"]?></div>
                 <div><?php echo $item["created_at"]?></div>
             </div>
@@ -81,8 +81,10 @@ try {
 
         <div class="pagination">
             <?php if($page !== 1) { ?>
-                <a href="/discussion.php?<?php echo $prev_page_button_number ?>"><button>이전</button></a>
-            <?php } ?>
+                <a href="/discussion.php?<?php echo $prev_page_button_number ?>">이전</a>
+            <?php } else {?>
+                <a><button style="display: none;">이전</button></a>
+                <?php } ?>
             <div class="page_num">
             <?php for($p = $start_page_button_number; $p <= $end_page_button_number; $p++) { ?>
             <a href="/discussion.php?page=<?php echo $p ?>"><?php echo $p ?></a>

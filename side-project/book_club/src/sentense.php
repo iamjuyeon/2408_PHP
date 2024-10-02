@@ -1,3 +1,15 @@
+<?php
+require_once($_SERVER["DOCUMENT_ROOT"]."/config.php");
+require_once(MY_PATH_DB_LIB);
+
+$conn = null;
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -9,17 +21,34 @@
 </head>
 <body>
     <div class="board_title" style="background-image: url('../img/창_이모티콘.png');">
-        <p>인상깊은 문장 작성</p>
+        <p>인상깊은 문장</p>
     </div>
     <div class="container">
-        <a href="./insert_sen.html"><button class="btn">글 작성</button></a>
+    <div class="btn">
+        <a href="/insert_sen.php"><button>글 작성</button></a>
+    </div>
     <div class="table">
         <div class="box-list">목록</div>
         <div class="box-content">내용</div>
         <div class="list" style="height: 410px; overflow-y: auto">
-            <div>
+            
+            <?php foreach($result as $item) { ?>
+                <div>
                 <img src="../img/free-icon-font-menu-burger-3917215.png" alt="">
-                <a href="./sentense.html"><span>게시글 번호 7</span></a>
+                <a href="/sentense.php?id=<?php echo $itme["id"]?>&page=<?php $page ?>"><span><?php echo $item["id"]?></span></a>
+            </div>
+            <ul>
+                <li><?php echo $item["title"]?></li>
+                <li><?php echo $item["NAME"]?></li>
+                <li><?php echo $item["created_at"]?></li>
+            </ul>
+            <?php } ?>
+
+
+
+            <!-- <div>
+                <img src="../img/free-icon-font-menu-burger-3917215.png" alt="">
+                <a href="/sentense.php"><span>게시글 번호 7</span></a>
             </div>
             <ul>
                 <li>달과 6펜스</li>
@@ -28,7 +57,7 @@
             </ul>
             <div>
                 <img src="../img/free-icon-font-menu-burger-3917215.png" alt="">
-                <a href="./sentense.html"><span>게시글 번호 6</span></a>
+                <a href="/sentense.php"><span>게시글 번호 6</span></a>
             </div>
             <ul >
                 <li>달과 6펜스</li>
@@ -37,7 +66,7 @@
             </ul>
             <div>
                 <img src="../img/free-icon-font-menu-burger-3917215.png" alt="">
-                <a href="./sentense.html"><span>게시글 번호 5</span></a>
+                <a href="/sentense.php"><span>게시글 번호 5</span></a>
             </div>
             <ul >
                 <li>달과 6펜스</li>
@@ -46,7 +75,7 @@
             </ul>
             <div>
                 <img src="../img/free-icon-font-menu-burger-3917215.png" alt="">
-                <a href="./sentense.html"><span>게시글 번호 4</span></a>
+                <a href="/sentense.php"><span>게시글 번호 4</span></a>
             </div>
             <ul >
                 <li>브람스를 좋아하세요</li>
@@ -55,7 +84,7 @@
             </ul>
             <div>
                 <img src="../img/free-icon-font-menu-burger-3917215.png" alt="">
-                <a href="./sentense.html"><span>게시글 번호 3</span></a>
+                <a href="/sentense.php"><span>게시글 번호 3</span></a>
             </div>
             <ul >
                 <li>브람스를 좋아하세요</li>
@@ -64,13 +93,13 @@
             </ul>
             <div>
                 <img src="../img/free-icon-font-menu-burger-3917215.png" alt="">
-                <a href="./sentense.html"><span>게시글 번호 2</span></a>
+                <a href="/sentense.php"><span>게시글 번호 2</span></a>
             </div>
             <ul >
                 <li>브람스를 좋아하세요</li>
                 <li>장원영</li>
                 <li >2024-09-22</li>
-            </ul>
+            </ul> -->
         </div>
         <div class="content" style="height: 410px; overflow-y: auto">
             <div class="info">

@@ -22,20 +22,23 @@ try {
             "id" => $id
         ];
         $result = discussion_select_id($conn, $arr_prepare);
+
     } else {
         $id = isset($_POST["id"]) ? (int)$_POST["id"] : 0;
 
         $page = isset($_POST["page"]) ? (int)$_POST["page"] : 1;
 
-        $name = isset($_POST["name"]) ? $_POST["name"] : "";
-
         $title = isset($_POST["title"]) ? $_POST["title"] : "";
+
+        // $created_at = isset($_POST["created_at"]) ? (int)$_POST["created_at"] : "";
 
         $content = isset($_POST["content"]) ? $_POST["content"] : "";
     
         if($id <1 || $title === "") {
             throw new Exception("파라미터 오류");
         }
+
+
     
         //PDO 인스턴스
         $conn = my_db_conn();
@@ -45,15 +48,15 @@ try {
 
         $arr_prepare = [
             "id" => $id
-            ,"name" => $name
             ,"title" => $title
+            // ,"created_at" => $created_at
             ,"content" => $content
         ];
     
-    discussion_update($conn, $arr_param);
+    discussion_update($conn, $arr_prepare);
 
     $conn->commit();
-    header("Location: /detail.dis.php?id=".$id."&page=".$page);
+    header("Location: /discussion.php?id=".$id."&page=".$page);
     exit;
     }
 
@@ -61,10 +64,10 @@ try {
     if(!is_null($conn) && $conn->inTransaction()) {
         $conn->rollBack();
     }
-}
-require_once(MY_PATH_ERROR);
-exit;
 
+    require_once(MY_PATH_ERROR);
+    exit;
+}
 
 ?>
 
@@ -75,33 +78,36 @@ exit;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/background.css">
-    <link rel="stylesheet" href="./css/update.dis.css">
+    <link rel="stylesheet" href="./css/update_dis.css">
     <title>발제문 수정</title>
 
 </head>
 <body>
-        <div class="board_title" style="background-image: url('../img/창_이모티콘.png');">
-        <p>발제문</p>
+    <div class="board_title" style="background-image: url('../img/창_이모티콘.png');">
+        <p>
+        발제문
+        <?php echo "/ ".$result["id"]." / ".$result["NAME"] ?>
+        </p>
     </div>
     <div class="container">
-        <form action="/detail_dis.php" method="post">
-        <input type="hidden" name="page" value="<?php echo $result["id"]?>">
+        <form action="/update_dis.php" method="post">
+        <input type="hidden" name="page" value="<?php echo $page?>">
+        <input type="hidden" name="id" value="<?php echo $result["id"] ?>">
             <div class="post_box">
                 <div class="box">
                     <div class="box_title">이름</div>
-                    <div>
-                        <input type="text" id="name" class="insert" value="필릭스" >
-                        <input type="hidden" name="">
+                    <div class="insert">
+                        <input type="text" name="name" id="name" value="<?php echo $result["NAME"]?>">
                     </div>
                 </div>
                 <div class="box">
                     <div class="box_title">작성 일자</div>
-                    <div class="box_content">2024-09-26</div>
+                    <div class="insert">2024-09-09</div>
                 </div>
                 <div class="box">
                     <div class="box_title">제목</div>
-                    <div>
-                        <input type="text" name="title" id="title" class="insert" maxlength="20" value="<?php echo $result["title"]?>">
+                    <div class="insert">
+                        <input type="text" name="title" id="title" maxlength="40" value="<?php echo $result["title"]?>">
                     </div>
                 </div>
             </div>
@@ -110,8 +116,8 @@ exit;
             </div>
             <div class="board_footer">
                 <button type="submit" class="btn">완료</button>
-                <a href="./discussion.php"><button class="btn">목록</button></a>
-                <a href="./discussion.php?id=<?php echo $result["id"]?>&page=<?php echo $page ?>"><button class="btn">취소</button></a>
+                <a href="/discussion.php"><button class="btn">목록</button></a>
+                <a href="/detail_dis.php?id=<?php echo $result["id"]?>&page=<?php echo $page ?>"><button class="btn">취소</button></a>
             </div>
         </form>
     </div>

@@ -1,3 +1,56 @@
+<?php
+require_once($_SERVER["DOCUMENT_ROOT"]."/config.php");
+require_once(MY_PATH_DB_LIB);
+
+$conn = null;
+
+try {
+
+    if(strtoupper($_SERVER["REQUEST_METHOD"]) === "GET") {
+        $id = isset($_GET["id"]) ? (int)$_GET["id"] : 0;
+        $page = isset($_GET["page"]) ? (int)$_GET["page"] : 1;
+    
+        if($id < 1) {
+            throw new Exception("파라미터 뭔가 잘못적음 오류");
+        }
+    
+        $conn = my_db_conn();
+
+        $arr_prepare = [
+            "id" => $id
+        ];
+        $result = discussion_select_id($conn, $arr_prepare);
+    } else {
+        //post처리
+        $id = isset($_POST["id"]) ? (int)$_POST["id"] : 0;
+
+        if($id <1) {
+            throw new Exception("파라미터 오류");
+        }
+
+        $conn = my_db_conn();
+        $conn->beginTransaction();
+
+        $arr_prepare = [
+            "id" => $id
+        ];
+        discussion_delete_id($conn, $arr_prepare);
+
+        $conn->commit();
+        header("Location: /discussion.php");
+        exit;
+    }
+
+} catch (Throwable $th) {
+    if(!is_null($conn) && $conn->inTransaction()) {
+        $conn->rollBack();
+    }
+    require_once(MY_PATH_ERROR);
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -16,8 +69,11 @@
         <div class="delete" style="background-image: url('../img/창_이모티콘.png');"></div>
         <div class="content">게시글을 정말로 삭제 하시겠습니까?</div>
         <div class="board_footer">
-            <button class="btn"><a href="./discussion.html">취소</a></button>
-            <button class="btn"><a href="./discussion.html">완료</a></button>
+            <form action="/delete_dis.php" method="post">
+            <input type="hidden" name="id" value="<?php echo $result["id"]?>">
+            <a href="/detail_dis.php?id=<?php echo $result["id"]?> &page=<?php echo $page ?>"><button type="button" class="btn">취소</button></a>
+            <button type="submit" class="btn">완료</button>
+            </form>
         </div>
     </div>
     </div>

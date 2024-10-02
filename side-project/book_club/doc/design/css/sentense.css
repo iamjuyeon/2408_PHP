@@ -12,12 +12,15 @@
     font-size: 25px;
 }
 
-
 .btn {
+    text-align: right;
+}
+
+.btn button {
     background-color: #D1AAE8;
     border: solid 1px #000;
     padding: 10px 40px;
-    margin: 0 20px;
+    margin: 30px 34px 0 0;
     font-size: 1.3rem;
     box-shadow: 5px 5px 1px #7E796F;
 }
@@ -50,7 +53,7 @@
     padding: 10px;
 }
 
-img {
+img:not(:last-child) {
     width: 20px;
     height: 20px;
     vertical-align: middle;

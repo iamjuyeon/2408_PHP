@@ -19,27 +19,28 @@ a {
 
 .container {
     width: 800px;
-    height: 700px;
+    height: 650px;
     background-color: #FCF2DD;
+    border: solid 1px #000;
     display: grid;
-    grid-template-columns: 160px 1fr;
+    grid-template-columns: 180px 1fr;
     grid-template-rows: 1fr 1fr 1fr;
 }
 
 .folder {
     background-color: #FCF2DD;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; */
 }
 
 .folder_icon {
     background-image: url('./../../img/close_folder.png');
     background-repeat: no-repeat;
     padding-top: 70%;
-    background-size: contain;
+    background-size: 140px 120px;
     background-position: center;
-    margin: 20px 20px 10px;
+    
 
 }
 
@@ -47,10 +48,11 @@ a {
     background-image: url('./../../img/open_folder.png');
     background-repeat: no-repeat;
     padding-top: 70%;
-    background-size: contain;
+    background-size: 140px 120px;
     background-position: center;
-    margin: 20px 20px 10px;
+    
 }
+
 
 .menu_bar {
     background-color: #E38686;
@@ -61,7 +63,8 @@ a {
 
 p {
     text-align: center;
-    font-size: 20px;
+    font-size: 1.2rem;
+    margin-top: 30px;
 
 }
 

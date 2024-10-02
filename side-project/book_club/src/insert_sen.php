@@ -30,8 +30,8 @@
                </div>
                </div>
            <div class="board_footer">
-               <button class="btn"><a href="./sentense.html">취소</a></button>
-               <button class="btn"><a href="./sentense.html">완료</a></button>
+               <button class="btn"><a href="/sentense.php">취소</a></button>
+               <button class="btn"><a href="/sentense.php">완료</a></button>
            </div>
        </form>
 

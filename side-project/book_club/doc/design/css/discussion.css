@@ -74,10 +74,16 @@
 
 .pagination a {
     padding: 8px 5px
+    
 }
 
 
 .pagination a:hover {
+    color: #E0113E;
+    font-weight: 700;
+}
+
+.page_num:checked {
     color: #E0113E;
     font-weight: 700;
 }

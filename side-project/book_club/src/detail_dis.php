@@ -66,11 +66,11 @@ try {
             </div>
         </div>
         <div class="content"><?php echo $result["content"] ?></div>
-            <div class="board_footer">
-                <button class="btn" type="button"><a href="/update_dis.php">수정</a></button>
-                <button class="btn" type="button"><a href="/discussion.php">목록</a></button>
-                <button class="btn" type="button"><a href="/delete_dis.php">삭제</a></button>
-            </div>
+        <div class="board_footer">
+            <a href="/update_dis.php?id=<?php echo $result["id"]?>&page=<?php echo $page ?>"><button class="btn" type="button">수정</button></a>
+            <a href="/discussion.php?page=<?php echo $page ?>"><button class="btn" type="button">목록</button></a>
+            <a href="/delete_dis.php?id=<?php echo $result["id"]?>&page=<?php echo $page ?>"><button class="btn" type="button">삭제</button></a>
+        </div>
     </div>
         
     <div class="menu_bar">

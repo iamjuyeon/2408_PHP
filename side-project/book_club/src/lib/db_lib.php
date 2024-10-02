@@ -54,7 +54,7 @@ function discussion_total_count(PDO $conn) {
 }
 
 
-//id로 게시글 조회
+//id로 발제문 게시글 조회
 function discussion_select_id(PDO $conn, array $arr_param) {
     $sql = 
         " SELECT "
@@ -64,13 +64,32 @@ function discussion_select_id(PDO $conn, array $arr_param) {
         ." WHERE "
         ."      id = :id "
         ;
-$stmt = $conn->prepare($sql);
-$result_flg = $stmt->execute($arr_param);
+    $stmt = $conn->prepare($sql);
+    $result_flg = $stmt->execute($arr_param);
 
-if(!$result_flg) {
-    throw new Exception("id로 조회하는 쿼리문 이상");
+    if(!$result_flg) {
+        throw new Exception("id로 조회하는 쿼리문 이상");
+    }
+    return $stmt->fetch();
 }
-return $stmt->fetch();
+
+// id로 인상깊은 문장 게시글 조회
+function sentense_select_id(PDO $conn, array $arr_param) {
+    $sql = 
+        " SELECT "
+        ."      * "
+        ." FROM "
+        ."     sentense_board "
+        ." WHERE "
+        ."      id = :id "
+        ;
+    $stmt = $conn->prepare($sql);
+    $result_flg = $stmt->execute($arr_param);
+
+    if(!$result_flg) {
+        throw new Exception("id로 조회하는 쿼리문 이상");
+    }
+    return $stmt->fetch();
 }
 
 
@@ -112,7 +131,6 @@ function discussion_update(PDO $conn, array $arr_param) {
         " UPDATE discussion_board "
         ." SET "
         ."      title = :title "
-        ."      ,name = :name "
         ."      ,content = :content "
         ."      ,updated_at = NOW() "
         ." WHERE "
@@ -132,4 +150,27 @@ function discussion_update(PDO $conn, array $arr_param) {
         }
 
         return true;
+}
+
+
+// delete 게시글 삭제
+function discussion_delete_id(PDO $conn, $arr_param) {
+    $sql = 
+    " UPDATE discussion_board "
+    ." SET "
+    ."     updated_at = NOW() "
+    ."     ,deleted_at = NOW() "
+    ." WHERE "
+    ."      id = :id "
+    ;
+
+$stmt = $conn->prepare($sql);
+$result_flg = $stmt->execute($arr_param);
+if(!$result_flg) {
+    throw new Exception("쿼리 실행 실패");
+}
+if($stmt->rowCount() !== 1) {
+    throw new Exception("Delete count 이상");
+}
+return true;
 }

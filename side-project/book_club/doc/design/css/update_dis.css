@@ -19,8 +19,6 @@
     justify-content: center;
     margin: 0 70px ;
     padding-top: 40px;
-    
-
 }
 
 .box {
@@ -37,23 +35,26 @@
     text-align: center;
 }
 
-/* .box_content {
+.insert {
     font-size: 1.2rem;
     background-color: #FFFBF1;
     width: 480px;
     padding: 10px;
     border-left: solid 1px #000;
-} */
+}
 
-.insert {
+input {
+    font-size: 1.2rem;
+    width: 450px;
+    height: 20px;
     background-color: #FFFBF1;
-    padding: 10px;
+    /* padding: 10px; */
     outline: none;
     border: none;
 }
 
 
-.box_content :nth-child(n+1) {
+.box_content {
     background-color: #FFFBF1;
     border: solid 1px #000;
     margin: 0 70px 20px 70px;
