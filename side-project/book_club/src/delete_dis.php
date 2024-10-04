@@ -67,7 +67,7 @@ try {
     <div class="container">
     <div class="delete_popup">
         <div class="delete" style="background-image: url('../img/창_이모티콘.png');"></div>
-        <div class="content">게시글을 정말로 삭제 하시겠습니까?</div>
+        <p>게시글을 정말로 삭제 하시겠습니까?</p>
         <div class="board_footer">
             <form action="/delete_dis.php" method="post">
             <input type="hidden" name="id" value="<?php echo $result["id"]?>">

@@ -31,10 +31,15 @@
 }
 
 .delete_popup > p{
-    padding-top: 20px;
-    padding-bottom: 10px;
+    padding-top: 35px;
 }
 
+.delete > p {
+    color: #fff;
+    font-size: 20px;
+    text-align: left;
+    padding: 4px;
+}
 
 .btn {
     background-color: #D1AAE8;

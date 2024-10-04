@@ -14,29 +14,32 @@
 }
 
 .container {
-    /* display: grid;
-    grid-template-rows: 1f 400px 1fr; */
-    padding: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .delete_popup {
     width: 400px;
     height: 150px;
     background-color: #FFFBF1;
+    margin: auto;
     text-align: center;
     border: solid 1px #000;
+    box-shadow: 5px 5px 1px #7E796F;
+    
 }
 
-.content {
-    padding: 20px;
+.delete_popup > p{
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 .btn {
     background-color: #D1AAE8;
     padding: 10px 20px;
     font-size: 1rem;
-    margin-top: 5px;
-    margin-right: 34px;
+    margin-left: 20px;
     box-shadow: 5px 5px 1px #7E796F;
 }
 
@@ -45,7 +48,7 @@
     background-repeat: no-repeat;
     background-position: right;
     background-size: 18%;
-    border: solid 1px #000;
-    width: 400px;
+    border-bottom: solid 1px #000;
+    width: 398px;
     height: 30px;
 }

@@ -53,8 +53,9 @@ function discussion_total_count(PDO $conn) {
 
 }
 
-
+// ------------------------
 //id로 발제문 게시글 조회
+// -------------------------
 function discussion_select_id(PDO $conn, array $arr_param) {
     $sql = 
         " SELECT "
@@ -73,7 +74,54 @@ function discussion_select_id(PDO $conn, array $arr_param) {
     return $stmt->fetch();
 }
 
+// *************************************
+// 인상깊은 문장 정보(페이지네이션, 한페이지에 보여질 게시글 수) 가져오기
+// **************************************
+
+function sentense_select_pagination(PDO $conn, array $arr_param) {
+   // sentense_board sql
+    $sql = 
+        " SELECT "
+        ."     * "
+        ." FROM "
+        ."      sentense_board "
+        ." WHERE "
+        ."       deleted_at IS NULL "
+        ." ORDER BY "
+        ."       created_at DESC "
+        ."      ,id DESC "
+        ." LIMIT :list_cnt OFFSET: offset"
+        ;
+
+    $stmt = $conn->prepare($sql);
+    $result_flg = $stmt->execute($arr_param);
+
+    if(!$result_flg) {
+        throw new Exception("데이퍼 불러 오기 실패!!");
+    }
+
+    return $stmt->fetchAll();
+}
+
+function sentense_total_count(PDO $conn) {
+    $sql = 
+        " SELECT "
+        ."      COUNT(*) cnt "
+        ." FROM "
+        ."      sentense_board "
+        ." WHERE "
+        ."      deleted_at IS NULL "
+        ;
+
+        $stmt = $conn->query($sql);
+        $result = $stmt->fetch();
+    
+    return $result["cnt"];
+}
+
+// **********************************
 // id로 인상깊은 문장 게시글 조회
+// **********************************
 function sentense_select_id(PDO $conn, array $arr_param) {
     $sql = 
         " SELECT "

@@ -87,3 +87,8 @@ span {
     padding-bottom: 5px;
     border-bottom: solid 1px #000;
 }
+
+.page_btn {
+    font-size: 18px;
+    text-align: center;
+}

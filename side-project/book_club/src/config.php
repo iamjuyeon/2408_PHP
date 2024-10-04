@@ -15,7 +15,16 @@ define("MY_PATH_ERROR", MY_PATH_ROOT."error.php"); //에러 페이지
 
 define("MY_PATH_DB_LIB", MY_PATH_ROOT."lib/db_lib.php"); //DB 라이브러리
 
-
-// ** 로직 관련 설정
+// ----------------------
+// ** 발제문 게시판 로직 관련 설정 ***
+// -------------------------------------
 define("MY_LIST_COUNT", 6);
 define("MY_PAGE_BUTTON_COUNT", 10);
+
+
+// -------------------------------------
+// *** 인상깊은 문장 게시판 로직 관련 설정 ***
+// ------------------------------------
+
+define("SENTENSE_LIST_COUNT", 7);
+define("SENTENSE_BUTTON_COUNT",3);

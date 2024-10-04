@@ -21,10 +21,13 @@
         </div>
         <div></div>
         <div class="folder">
-            <a href="">
+            <a href="./calender.php">
             <div class="folder_icon"><p>일정</p></div>
             </a>
         </div>
+
+
+        
     </div>
     <div class="menu_bar">
             <a href="/main.php">
