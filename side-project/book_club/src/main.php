@@ -9,23 +9,33 @@
 <body>
     <div class="container">
         <div class="folder">
-            <a href="./discussion.php">
+            <a href="/discussion.php">
             <div class="folder_icon"><p>발제문</p></div>
             </a>    
         </div>
         <div></div>
+        <div></div>
+        <div></div>
         <div class="folder">
-            <a href="./sentense.php">
+            <a href="/sentense.php">
             <div class="folder_icon"><p>인상깊은 구절</p></div>
             </a>
         </div>
         <div></div>
+        <div></div>
+        <div></div>
         <div class="folder">
-            <a href="./calender.php">
+            <a href="/calender.php">
             <div class="folder_icon"><p>일정</p></div>
             </a>
         </div>
-
+        <div></div>
+        <div></div>
+        <div class="folder">
+            <a href="/index.php">
+            <div class="icon"><p>홈</p></div>
+            </a>
+        </div>
 
         
     </div>

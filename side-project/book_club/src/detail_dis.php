@@ -66,6 +66,11 @@ try {
             </div>
         </div>
         <div class="content"><?php echo $result["content"] ?></div>
+        <?php if(!is_null($result["img"])) {?>
+            <div class="img">
+                <img src="<?php echo $result["img"]?>" alt="">
+            </div>
+        <?php } ?>
         <div class="board_footer">
             <a href="/update_dis.php?id=<?php echo $result["id"]?>&page=<?php echo $page ?>"><button class="btn" type="button">수정</button></a>
             <a href="/discussion.php?page=<?php echo $page ?>"><button class="btn" type="button">목록</button></a>

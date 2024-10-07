@@ -33,6 +33,9 @@ try {
         // $created_at = isset($_POST["created_at"]) ? (int)$_POST["created_at"] : "";
 
         $content = isset($_POST["content"]) ? $_POST["content"] : "";
+
+        //file 획득
+        //$file = $_FILE[""file]; 이미지 파일 불러오기
     
         if($id <1 || $title === "") {
             throw new Exception("파라미터 오류");
@@ -52,9 +55,32 @@ try {
             // ,"created_at" => $created_at
             ,"content" => $content
         ];
-    
-    discussion_update($conn, $arr_prepare);
 
+        //file 저장 처리(파일명이 중복되지 않도록 unique id로 바꿈)
+        // if($file["name"] !=="") {
+        //  기존 파일 삭제 처리
+            // $arr_prepare_select = [
+            //     "id" => $id
+            // ];
+        // $result = discussion_select_id($conn $arr_prepare_select);
+        // $if(!is_null($result["img"])) {
+        // unlink(MY_PATH_ROOT.$result["img"]);    }
+    
+        //     $type = explode("/", $file["type"]); //[img,png] 이렇게 배열로 정렬
+        //     $extension = $type[1]; //파일 확장자 가져오기
+        //     $file_name = uniqid().".".$extension;
+        //     $file_path = "/img/".$file_name;
+
+        //     move_uploaded_file($file["tmp_name"], MY_PATH_ROOT.$file_path);//파일 저장
+        //     $arr_prepare["img"] = $file_path;
+        // }
+
+        
+        // my_boards_update($conn, $arr_prepare);
+        
+
+
+    discussion_update($conn, $arr_prepare);
     $conn->commit();
     header("Location: /discussion.php?id=".$id."&page=".$page);
     exit;
@@ -102,7 +128,7 @@ try {
                 </div>
                 <div class="box">
                     <div class="box_title">작성 일자</div>
-                    <div class="insert">2024-09-09</div>
+                    <div class="insert"><?php echo $result["created_at"]?></div>
                 </div>
                 <div class="box">
                     <div class="box_title">제목</div>

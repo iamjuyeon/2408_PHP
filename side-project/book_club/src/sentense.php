@@ -68,7 +68,7 @@ try {
             <?php foreach($result as $item) { ?>
                 <div>
                     <img src="../img/free-icon-font-menu-burger-3917215.png" alt="">
-                    <a href="/sentense.php"><span><?php echo $item["id"]?></span></a>
+                    <a href="/sentense.php?id=<?php echo $item["id"]?>&page=<?php echo $page ?>"></a>
                 </div>
                 <ul>
                     <li><?php echo $item["title"]?></li>
@@ -76,15 +76,6 @@ try {
                     <li><?php echo $item["created_at"]?></li>
                 </ul>
                 <?php } ?>
-                <div>
-                    <img src="../img/free-icon-font-menu-burger-3917215.png" alt="">
-                    <a href="./sentense.php"><span>게시글 번호 6</span></a>
-                </div>
-                <ul >
-                    <li>달과 6펜스</li>
-                    <li>필릭스</li>
-                    <li>2024-09-28</li>
-                </ul>
 
                 <div class="page_btn">
                     <?php if($page !==1) { ?>

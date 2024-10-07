@@ -39,10 +39,22 @@ $conn = null;
                 <div></div>
                 <div></div>
                 <?php for($d = 1; $d < 32 ; $d++)?>
+                <!-- <input type="checkbox" id="layer_popup"><label for="layer_popup"><?php echo "<div>".$d."</div>"?></label> -->
 
 
-                <div><a href="./post_discussion.html">1</div></a>
-                <div><a href="">2</a></div>
+                <div><input type="checkbox" id="layer_popup"><label for="layer_popup">1</label>
+                    <div id="layer_bg">
+                        <div id="popup">
+                            <h2>
+                                일정 등록
+                                <label for="layer_popup">X</label>
+                            </h2>
+                            <textarea name="memo" id="memo" placeholder="내용을 등록하세요"></textarea>
+                            <h2><a href="/calender.php">저장</a></h2>
+                        </div>
+                    </div>
+                </div>
+                <div>2</div>
                 <div>3</div>
                 <div>4</div>
                 <div>5</div>

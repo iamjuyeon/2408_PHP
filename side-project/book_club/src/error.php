@@ -20,8 +20,8 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/config.php");
             <div class="delete" style="background-image: url('../img/창_이모티콘.png');">
                 <p>error</p>
             </div>
-            <p>에러가 발생했습니다.
-                <button class="btn"><a href="/main.php">메인으로</a></button>
+            <p>서버 점검 중입니다...
+            <a href="/main.php"><button class="btn">메인으로</button></a>
             </p>
             
         </div>

@@ -23,8 +23,8 @@ a {
     background-color: #FCF2DD;
     border: solid 1px #000;
     display: grid;
-    grid-template-columns: 180px 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 180px 180fr 180fr 180fr;
+    grid-template-rows: 216px 216px 216px;
 }
 
 .folder {
@@ -33,6 +33,7 @@ a {
     flex-direction: column;
     justify-content: center; */
 }
+
 
 .folder_icon {
     background-image: url('./../../img/close_folder.png');
@@ -50,9 +51,23 @@ a {
     padding-top: 70%;
     background-size: 140px 120px;
     background-position: center;
-    
 }
 
+.icon {
+    background-image: url('./../../img/computer_off_icon.png');
+    background-repeat: no-repeat;
+    padding-top: 70%;
+    background-size: 140px 120px;
+    background-position: center;
+}
+
+.icon:hover {
+    background-image: url('./../../img/computer_on_icon.png');
+    background-repeat: no-repeat;
+    padding-top: 70%;
+    background-size: 140px 120px;
+    background-position: center;
+}
 
 .menu_bar {
     background-color: #E38686;
