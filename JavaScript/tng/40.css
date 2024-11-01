@@ -1,0 +1,31 @@
+/* .bing-go:active {
+    background-color: rgb(232, 188, 227);
+    width: 50px;
+    height: 50px;
+    transition: all 0.2s;
+} */
+.hidden {
+    background-color: rgb(255, 255, 255);
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+
+}
+
+.box {
+    background-color: rgb(255, 255, 255);
+    margin: 20px;
+    width: 50px;
+    height: 50px;
+    position: relative;
+
+}
+
+.busted {
+    background-color: aquamarine;
+}
+
+
+
