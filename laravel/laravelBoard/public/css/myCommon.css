@@ -6,3 +6,7 @@ main {
     gap: 10px;
     padding-bottom: 5rem;
 }
+
+#modalImg {
+    width: 100%;
+}

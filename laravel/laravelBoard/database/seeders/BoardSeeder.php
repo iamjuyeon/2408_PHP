@@ -15,12 +15,12 @@ class BoardSeeder extends Seeder
      */
     public function run()
     {
-        $total = 100;
-        $interval = 50;
+        // $total = 100;
+        // $interval = 50;
         
-        for($i = 0; $i < 6; $i + $interval) {
-            Board::factory($interval)->create();
-        }
+        // for($i = 0; $i < 6; $i + $interval) {
+        //     Board::factory($interval)->create();
+        // }
 
     }
 }
