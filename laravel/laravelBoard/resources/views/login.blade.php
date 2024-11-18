@@ -5,7 +5,7 @@
     
 
     <main class="d-flex justify-content-center align-items-center h-75">
-        <form style="width: 300px;" action="{{ route('login') }}" method="POST">
+        <form style="width: 300px;" action="{{ route('login') }}" method="post">
             
             @csrf
             {{-- 에러메세지 --}}
@@ -32,7 +32,7 @@
             </div>
 
             <button type="submit" class="btn btn-dark w-100 mb-3">로그인</button>
-            <a href="./regist.html" class="btn btn-secondary w-100">회원가입</a>
+            <a href="{{ route('get.registration')}}" class="btn btn-secondary w-100">회원가입</a>
         </form>
 
     </main>

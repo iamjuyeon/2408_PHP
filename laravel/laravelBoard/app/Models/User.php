@@ -12,7 +12,7 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, SoftDeletes;
 
-    protected $primarykey = 'u_id';
+    protected $primaryKey = 'u_id';
     /**
      * The attributes that are mass assignable.
      *
@@ -23,6 +23,8 @@ class User extends Authenticatable
         'u_email',
         'u_password',
     ];
+
+    
 
     /**
      * The attributes that should be hidden for serialization.

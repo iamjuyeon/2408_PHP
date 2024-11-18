@@ -23,7 +23,9 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                // return redirect(RouteServiceProvider::HOME);
+                return redirect()->route('boards.index'); //이거 뭐여?
+                //그냥 route만 하면 어디의 route위치인지 정확하게 모른다 이거여?
             }
         }
 

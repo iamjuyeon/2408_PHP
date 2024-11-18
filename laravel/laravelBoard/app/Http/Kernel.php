@@ -13,6 +13,7 @@ class Kernel extends HttpKernel
      *
      * @var array<int, class-string|string>
      */
+    //전역에서 사용가능
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
@@ -28,6 +29,7 @@ class Kernel extends HttpKernel
      *
      * @var array<string, array<int, class-string|string>>
      */
+    //각각의 route에서 사용할 수 있도록 정의 함
     protected $middlewareGroups = [
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
@@ -53,6 +55,7 @@ class Kernel extends HttpKernel
      *
      * @var array<string, class-string|string>
      */
+    //모든 route에서 사용가능
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

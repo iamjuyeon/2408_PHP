@@ -32,7 +32,8 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            // 'root' => storage_path('app'),//파일을 저장하는 위치
+            'root' => public_path(),//기본path 가 public으로
         ],
 
         'public' => [

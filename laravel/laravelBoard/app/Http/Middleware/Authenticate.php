@@ -12,10 +12,12 @@ class Authenticate extends Middleware
      * @param  \Illuminate\Http\Request  $request
      * @return string|null
      */
-    protected function redirectTo($request)
+    protected function redirectTo($request) //유저가 로그인이 안되어 있는 상태에서 진행(자동으로)
     {
+        if($request->isRoute)
+        
         if (! $request->expectsJson()) {
-            return route('login');
+            return route('goLogin');
         }
     }
 }
