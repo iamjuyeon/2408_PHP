@@ -1,5 +1,29 @@
 <template> 
 <!-- html -->
+<!-- component Event -->
+<EventComponent 
+    :cnt = "cnt"
+    @eventAddCnt = "addCnt"
+    @eventAddCntParam = "addCntParam"
+    @eventReset = "reset"
+    />
+<h3>부모쪽 cnt : {{ cnt }}</h3>
+
+
+
+
+<!-- 자식 컴포넌트 호출 -->
+<ChildComponent 
+    :data = "data"
+    :count = "cnt"
+>
+<!-- 보통 키 이름과 데이터 이름은 똑같다 -->
+<hr>
+<h3>부모 쪽에서 작성한 것들</h3>
+<p>아아아</p>
+</ChildComponent>
+
+
 
 <!-- 자식 컴포넌트 호출 -->
 <BoardComponent />
@@ -34,6 +58,7 @@
 <!-- foreach -->
 <div v-for="(item, key) in data" :key="item">
 <p>{{ `${key}번째 ${item.name} - ${item.age} - ${item.gender}` }}</p>
+<!-- <p>{{  item.name + '-' + item.age + '-' + item.gender }}</p> -->
 </div>
 <button @click="data.pop">둘리삭제</button>
 
@@ -80,7 +105,8 @@
 
 <script setup> //javascript
 import BoardComponent from './components/BoardComponent.vue';
-
+import ChildComponent from './components/ChildComponent.vue';
+import EventComponent from './components/EventComponent.vue';
 
 import { reactive, ref } from 'vue';
 
@@ -133,6 +159,7 @@ function changeName() {
 }
 
 //-------------ref-------------
+//숫자 증가 감소 버튼
 const addCnt = () => {
     cnt.value++; // ref 객체의 value 프로퍼티에 접근
 }
@@ -141,22 +168,30 @@ const disCnt = () => {
     cnt.value--;
 }
 
+//2씩 증가하는 파라미터 함수
+function addCntParam(num) {
+    cnt.value += num;
+}
+
+function reset(num) {
+    cnt.value = num;
+}
 
 </script>
 
 
 
 
-<style>
+<style scoped>
 /* css */
- #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+    #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+    }
 
 .blue {
     color : #0000ff;
