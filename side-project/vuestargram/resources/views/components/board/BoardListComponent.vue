@@ -1,27 +1,10 @@
 <template>
 <!-- 리스트 -->
 <div class="board-list-box">
-    <div @click="openModal" class="item">
-        <img src="/img/me.jpg" alt="">
+    <div v-for="item in boardList" :key="item"  @click="openModal" class="item">
+        <img :src="item.img" alt="">
     </div>
-    <div @click="openModal" class="item">
-        <img src="/img/PowerShell.jpg" alt="">
-    </div>
-    <div @click="openModal" class="item">
-        <img src="/img/tim berners lee(html).jpg" alt="">
-    </div>
-    <div @click="openModal" class="item">
-        <img src="/img/라스무스 러도프.png" alt="">
-    </div>
-    <div @click="openModal" class="item">
-        <img src="/img/몬티 와이드니어스.png" alt="">
-    </div>
-    <div @click="openModal" class="item">
-        <img src="/img/테일러 오트웰.png" alt="">
-    </div>
-    <div @click="openModal" class="item">
-        <img src="/img/evan you.jpg" alt="">
-    </div>
+
 </div>
 
 <!-- 상세모달 -->
@@ -42,7 +25,21 @@
 
 
 <script setup>
-import { ref } from 'vue';
+import { computed, onBeforeMount, ref } from 'vue';
+import { useStore } from 'vuex';
+const store = useStore();
+
+const boardList = computed(() => store.state.board.boardList);
+//boardlist 가 computed객체라서 length 못함 -> 뭔말이냐 이게
+
+// *****비포 마운트 처리*****
+onBeforeMount(() => {
+    if(store.state.board.boardList.length < 1) {
+
+    }
+    store.dispatch('board/getBoardListPagenation');//액션메소드
+})
+
 
 //******모달 관련******
 //모달 창 닫기(board 들어갔을 때 모달창 안뜨게)
