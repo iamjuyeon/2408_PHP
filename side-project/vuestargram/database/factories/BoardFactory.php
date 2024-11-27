@@ -15,13 +15,20 @@ class BoardFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+    
     public function definition()
     {
+        $image = [
+            '.png',
+            '.jpg'
+        ];
         $user = User::select('user_id')->inRandomOrder()->first();
         return [
             'user_id' => $user->user_id,
             'content' => $this->faker->realText(rand(10, 100)),
-            'img' => '/img'.rand(1,3).'.png',
+            // 'img' => '/img'.rand(1,3).'.png',
+            'img' => '/img'.$image[rand(1,8)],
             'like' => rand(1,300),
         ];
     }
