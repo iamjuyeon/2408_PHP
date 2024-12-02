@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+//로그인 처리
+Route::post('/login', [AuthController::class, 'login'])->name('post.login');
 
-// Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+//로그아웃 처리
+Route::middleware('my.auth')->post('/logout', [AuthController::class, 'logout'])->name('post.logout');
