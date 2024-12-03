@@ -41,3 +41,17 @@
     justify-content: space-between;
     align-items: center;
 }
+
+/* menu bar */
+.menu-bar {
+    background-color: #f0f0f0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.menu-bar > button {
+    font-size: 30px;
+    border: none;
+}

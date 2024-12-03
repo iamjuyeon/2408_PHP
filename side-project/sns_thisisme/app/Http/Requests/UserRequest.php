@@ -18,9 +18,17 @@ class UserRequest extends FormRequest
         //로그인시 아이디 여부 확인
         if($this->routeIs('auth.login')) {
             $rules['account'][] = 'exists:users,account';
+        } 
+        
+        else if($this->routeIs('user.store')) {
+            $rules['account'][] = 'unique:users,account';
+            $rules['password_chk'] = ['same:password'];
+            $rules['name'] = ['required', 'between:1,20', 'regex:/^[가-힣]+$/u'];
+            $rules['gender'] = ['required', 'regex:/^[0-1]{1}$/'];
+            $rules['profile'] = ['required', 'image']; //'max:2':최대 용량 2MB
         }
         return $rules;
-    }
+    } 
 
     //유효성 확인
     protected function failedValidation(Validator $validator)

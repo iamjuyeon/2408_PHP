@@ -37,7 +37,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 .btn {
@@ -49,6 +49,8 @@ a:hover {
     text-decoration: none;
     cursor: pointer;
     text-align: center;
+    margin-right: 10px;
+
 }
 .btn:hover {
     font-weight: 900;
@@ -66,6 +68,10 @@ a:hover {
 .btn-bg-white {
     color: #000;
     background-color: #fff;
+}
+.btn-bg-blue {
+    color: #000;
+    background-color: #8db8d4;
 }
 
 /* Form */
@@ -124,7 +130,7 @@ header {
     display: flex;
     align-items: center;
 }
-.eader-container{
+.header-container{
     position: fixed;
     top: 0;
     left: 0;
@@ -144,12 +150,31 @@ header {
 
 /* main */
 .container {
+    margin-top: 50px;
     display: flex;
     justify-content: center;
 }
 
 /* Footer */
 footer {
-    margin-top: 50px;
+    font-weight: 900;
+    padding: 15px;
+    color: #fff;
+    background-color: #8db8d4;
+    height: 50px;
+    /* margin-top: 50px; */
     text-align: center;
+}
+
+.menu-bar {
+    background-color: #f0f0f0;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.menu-bar > button {
+    font-size: 30px;
+    border: none;
 }
